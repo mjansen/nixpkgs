@@ -26,7 +26,7 @@ self: super: {
   hslua = super.hslua.override { lua = pkgs.lua5_1; };
 
   # Use the default version of mysql to build this package (which is actually mariadb).
-  mysql = super.mysql.override { inherit (pkgs) mysql; };
+  mysql = super.mysql.override { mysql = pkgs.mysql.lib; };
 
   # Please also remove optparse-applicative special case from
   # cabal2nix/hackage2nix.hs when removing the following.
@@ -720,11 +720,11 @@ self: super: {
   # Not on Hackage.
   cabal2nix = self.mkDerivation {
     pname = "cabal2nix";
-    version = "20150318";
+    version = "20150403";
     src = pkgs.fetchgit {
       url = "http://github.com/NixOS/cabal2nix.git";
-      rev = "d131b2b2db1bc37a10bbc40c3adea3f006633a5e";
-      sha256 = "0s92mdkgjqkqby6b1lrxs5dh9ja49sj5jpdc56g5v8g03h3g9m0a";
+      rev = "09e3eef8bae5d234c9b3fa2468c713dca1f11dc9";
+      sha256 = "1ngzwinplm7zdm5l8wgwd201zaywgp7lhassy6gpnrqfyhcvzl63";
       deepClone = true;
     };
     isLibrary = false;
@@ -745,6 +745,7 @@ self: super: {
     homepage = "http://github.com/NixOS/cabal2nix";
     description = "Convert Cabal files into Nix build instructions";
     license = pkgs.stdenv.lib.licenses.bsd3;
+    doCheck = false;
   };
 
 }

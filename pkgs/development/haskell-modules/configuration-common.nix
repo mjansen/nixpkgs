@@ -720,11 +720,11 @@ self: super: {
   # Not on Hackage.
   cabal2nix = self.mkDerivation {
     pname = "cabal2nix";
-    version = "20150403";
+    version = "20150505";
     src = pkgs.fetchgit {
       url = "http://github.com/NixOS/cabal2nix.git";
-      rev = "09e3eef8bae5d234c9b3fa2468c713dca1f11dc9";
-      sha256 = "1ngzwinplm7zdm5l8wgwd201zaywgp7lhassy6gpnrqfyhcvzl63";
+      rev = "1e8c48d7b3a9b73489d686ee1ae44f4198130294";
+      sha256 = "100p199nwv91r977ppr8hrzzkvv12hmq1p34ab21v2yznarlh2ls";
       deepClone = true;
     };
     isLibrary = false;
